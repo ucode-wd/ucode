@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Font Bold';
+    src: url(../../../public/CenturyGothicPaneuropeanBold.woff2);
+}
+.nosotros{
+    height: calc(100vh - 80px);
+    padding-top: 80px;
+}
+.nosotros h1::first-letter{
+    color: blueviolet;
+}
+.nosotros h1{
+    color: #eee;
+    margin: 0;
+    padding-top: 90px;
+    margin: auto;
+    font-size: 80px;
+    text-align: center;
+    padding-top: 20vh;
+    text-shadow: 10px 10px 5px #000;
+    font-family: 'Font Bold';
+    user-select: none;
+}
+.nosotros h3{
+    text-align: center;
+    font-size: 24px;
+    color: #fff;
+}
+@media(max-width: 600px){
+    .nosotros h1{
+        font-size: 3.5em;
+    }
+    .nosotros h3{
+        font-size: 1em;
+    }
+}

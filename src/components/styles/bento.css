@@ -1,0 +1,111 @@
+.bento {
+    min-height: 100vh;
+    display: grid;
+    width: 1100px;
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: 350px;
+    grid-row-gap: 23px;
+    grid-column-gap: 23px;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.bento-item {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: #000d;
+    color: #fff;
+    margin: auto;
+    padding: 5%;
+    transition: transform 0.3s; /* Corregido: transform en lugar de scale */
+
+}
+
+.bento-item * {
+    margin: 0;
+}
+
+.bento-item:hover{
+    transform: scale(1.02); /* Corregido: transform en lugar de scale */
+}
+
+.bento-item h3 {
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+}
+
+.bento-item p {
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+.smallElement {
+    grid-column: span 3;
+}
+
+.bigElement {
+    grid-column: span 4;
+}
+
+.bento-item {
+    background-size: cover;
+    background-position: bottom center;
+}
+
+.first{
+    background: url(../../../public/images/img1.webp), #6661;
+    background-position: center;
+    background-size: 50%;
+    background-repeat: no-repeat;
+}
+
+.second{
+    background: url(../../../public/images/img2.webp), #6661;
+    background-position: center;
+    background-size: 50%;
+    background-repeat: no-repeat;
+}
+
+.last{
+    background: url(../../../public/images/img3.webp), #6661;
+    background-position: center;
+    background-size:  50%;
+    background-repeat: no-repeat;
+}
+
+span {
+    font-weight: bold;
+    font-size: inherit;
+}
+
+@media (max-width: 1200px) {
+    .bento {
+        width: 90%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .bento {
+        grid-template-columns: 1fr;
+    }
+    .smallElement{
+        display: none;
+    }
+    .bigElement:nth-child(1){
+        background: url(../../../public/img1.webp), linear-gradient(100deg, #ddd1, #6E17EB77) !important;
+        background-position: center;
+        background-size: cover;
+    }
+    .bigElement {
+        grid-row: span 1;
+    }
+    .bento-item h3{
+        font-size: 26px;
+    }
+    .bento-item p{
+        font-size: 16px;
+    }
+}
