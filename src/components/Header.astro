@@ -1,0 +1,202 @@
+<header
+    id="site-header"
+    class="fixed top-0 left-0 border-white/10 w-full h-20 flex items-center justify-between px-6 md:px-12 z-50 transition-all duration-300"
+    role="banner"
+>
+    <!-- Logo -->
+    <a href="/" aria-label="Ucode" class="flex items-center h-full z-20 grow basis-0">
+        <div
+            class="rounded-md transition-transform duration-300 motion-reduce:duration-0 hover:-translate-y-0.5 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-indigo-400/20"
+        >
+            <img src="/ucode3.webp" alt="Ucode Logo" class="h-10 object-contain" />
+        </div>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden md:flex items-center gap-8" role="navigation" aria-label="Main">
+        <a
+            href="#hero"
+            class="group relative text-white/90 hover:text-white transition-colors duration-300 text-sm tracking-wide"
+        >
+            <span>INICIO</span>
+            <span
+                class="block h-[2px] rounded-full mt-1 w-0 group-hover:w-full transition-all duration-300 motion-reduce:transition-none bg-gradient-to-r from-indigo-400 to-indigo-300"
+            ></span>
+        </a>
+        <a
+            href="#bento"
+            class="group relative text-white/90 hover:text-white transition-colors duration-300 text-sm tracking-wide"
+        >
+            <span>NOSOTROS</span>
+            <span
+                class="block h-[2px] rounded-full mt-1 w-0 group-hover:w-full transition-all duration-300 motion-reduce:transition-none bg-gradient-to-r from-indigo-400 to-indigo-300"
+            ></span>
+        </a>
+        <a
+            href="#proyects"
+            class="group relative text-white/90 hover:text-white transition-colors duration-300 text-sm tracking-wide"
+        >
+            <span>PROYECTOS</span>
+            <span
+                class="block h-[2px] rounded-full mt-1 w-0 group-hover:w-full transition-all duration-300 motion-reduce:transition-none bg-gradient-to-r from-indigo-400 to-indigo-300"
+            ></span>
+        </a>
+        <a
+            href="#contacto"
+            class="group relative text-white/90 hover:text-white transition-colors duration-300 text-sm tracking-wide"
+        >
+            <span>CONTACTO</span>
+            <span
+                class="block h-[2px] rounded-full mt-1 w-0 group-hover:w-full transition-all duration-300 motion-reduce:transition-none bg-gradient-to-r from-indigo-400 to-indigo-300"
+            ></span>
+        </a>
+    </nav>
+
+    <!-- Social icons + CTA -->
+    <div class="hidden md:flex items-center gap-4 grow basis-0 justify-end">
+        <a
+            href="#contacto"
+            class="ml-2 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500 hover:bg-indigo-600 text-white shadow-md transition-transform duration-200 hover:-translate-y-0.5"
+        >
+            Contactanos
+        </a>
+    </div>
+
+    <!-- Mobile menu button -->
+    <button
+        id="menu-open-btn"
+        class="md:hidden z-50 p-2 transition-opacity duration-200"
+        aria-controls="mobile-nav"
+        aria-expanded="false"
+        aria-label="Abrir menú"
+        type="button"
+    >
+        <img src="/bars.svg" alt="" class="h-7 w-auto" />
+    </button>
+
+    <!-- Mobile nav (overlay) -->
+    <nav
+        id="mobile-nav"
+        class="fixed inset-0 bg-black/80 backdrop-blur-lg z-40 flex flex-col items-center justify-center gap-8 transform -translate-y-full opacity-0 pointer-events-none transition-all duration-300 ease-out"
+        aria-hidden="true"
+    >
+        <button
+            id="menu-close-btn"
+            class="absolute top-5 right-5 p-2 z-50 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400/40"
+            aria-label="Cerrar menú"
+            type="button"
+        >
+            <img src="/x.svg" alt="" class="h-8 w-auto" />
+        </button>
+
+        <a href="#hero" class="mobile-link text-white text-2xl font-medium tracking-wide hover:text-gray-200 transition-colors duration-150" data-close>INICIO</a>
+        <a href="#bento" class="mobile-link text-white text-2xl font-medium tracking-wide hover:text-gray-200 transition-colors duration-150" data-close>NOSOTROS</a>
+        <a href="#proyects" class="mobile-link text-white text-2xl font-medium tracking-wide hover:text-gray-200 transition-colors duration-150" data-close>PROYECTOS</a>
+        <a href="#contacto" class="mobile-link text-white text-2xl font-medium tracking-wide hover:text-gray-200 transition-colors duration-150" data-close>CONTACTO</a>
+    </nav>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const openBtn = document.getElementById('menu-open-btn');
+        const closeBtn = document.getElementById('menu-close-btn');
+        const mobileNav = document.getElementById('mobile-nav');
+        const mobileLinks = mobileNav.querySelectorAll('[data-close]');
+        const header = document.getElementById('site-header');
+        let lastScrollY = 0;
+
+        function openMenu() {
+            // evitar cambiar el scroll: guardamos la posición pero no la tocamos
+            lastScrollY = window.scrollY || window.pageYOffset;
+
+            // mostrar overlay (animación: desde -translate-y-full -> translate-y-0)
+            mobileNav.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+            mobileNav.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+
+            // elevar z-index para que no quede debajo del header fijo
+            mobileNav.style.zIndex = '9999';
+
+            // accesibilidad
+            mobileNav.setAttribute('aria-hidden', 'false');
+            openBtn.setAttribute('aria-expanded', 'true');
+
+            // escuchar escape
+            document.addEventListener('keydown', onKeydown);
+        }
+
+        function closeMenu() {
+            // revertir clases para esconder (animación inversa)
+            mobileNav.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+            mobileNav.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+
+            // restaurar z-index después de la transición para evitar superposición innecesaria
+            // usamos timeout aproximado a la duración de la transición (300ms)
+            setTimeout(function () {
+                mobileNav.style.zIndex = '';
+            }, 350);
+
+            mobileNav.setAttribute('aria-hidden', 'true');
+            openBtn.setAttribute('aria-expanded', 'false');
+
+            document.removeEventListener('keydown', onKeydown);
+        }
+
+        function onKeydown(e) {
+            if (e.key === 'Escape') closeMenu();
+        }
+
+        // Abrir botón
+        openBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            openMenu();
+        });
+
+        // Cerrar botón X
+        closeBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            closeMenu();
+        });
+
+        // Cerrar al clickear en el fondo (target === mobileNav)
+        mobileNav.addEventListener('click', function (e) {
+            if (e.target === mobileNav) closeMenu();
+        });
+
+        // Cerrar al clickear en cualquier link marcado con data-close
+        mobileLinks.forEach(function (link) {
+            link.addEventListener('click', function () {
+                // si el link es ancla, dejamos que el navegador haga el scroll normal
+                // no tocamos document.body.style.overflow ni cambiamos scroll
+                closeMenu();
+            });
+        });
+
+        // Si la ventana se hace grande (>= md), aseguramos que el menú esté cerrado
+        const mq = window.matchMedia('(min-width: 768px)');
+        function handleResize(e) {
+            if (e.matches) {
+                // pantalla md+ -> cerrar menú si estaba abierto
+                closeMenu();
+            }
+        }
+        mq.addListener(handleResize);
+        handleResize(mq);
+
+        // header background toggle on scroll
+        function onScroll() {
+            if (window.scrollY > 20) {
+                header.classList.add('bg-black/30', 'backdrop-blur-md', 'border-b');
+            } else {
+                header.classList.remove('bg-black/30', 'backdrop-blur-md', 'border-b');
+            }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        // Prevención por si querés que al abrir el menú el foco vaya al primer link:
+        // descomenta si lo querés
+        // const firstLink = mobileLinks[0];
+        // if (firstLink) openBtn.addEventListener('click', () => setTimeout(() => firstLink.focus(), 320));
+    });
+</script>
+
+</header>

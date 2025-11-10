@@ -1,0 +1,196 @@
+---
+// Nosotros.astro (estático)
+---
+<section id="bento" class="w-full mx-auto py-12" role="region" aria-label="Nosotros">
+    <!-- APARTADO PEQUEÑO: Quiénes somos (antes del bento) -->
+    <div class="w-full mx-auto mb-8 p-6 rounded-2xl bg-white/4 border border-white/6 text-center" data-aos="fade-in">
+        <h3 class="text-lg font-[ 'Font_Bold' ] text-white mb-2">¿Quiénes somos?</h3>
+        <p class="text-sm text-slate-300 max-w-3xl mx-auto">
+            Somos ucode, empresa joven de software. Diseñamos y desarrollamos soluciones web prácticas para comercios y pymes. Hacemos que ahorres tiempo en aquello que puede hacerse solo.
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-7 gap-6 auto-rows-[340px] w-full">
+
+        <!-- BLOBB 1 (decor) -->
+        <div
+            class="hidden lg:block lg:col-span-3 rounded-2xl overflow-hidden relative"
+            data-aos="zoom-in"
+            data-aos-delay="0"
+            aria-hidden="true"
+        >
+            <div class="w-full h-full rounded-2xl bg-gradient-to-br from-indigo-500/30 via-indigo-400/18 to-transparent backdrop-blur-sm border border-white/6 shadow-lg" />
+        </div>
+
+        <!-- CARD 1 — Sitios institucionales -->
+        <article
+            class="col-span-1 lg:col-span-4 rounded-2xl p-6 bg-white/5 backdrop-blur-md border border-white/6 shadow-2xl transform transition-transform duration-300 hover:scale-[1.02]"
+            data-aos="fade-up"
+            data-aos-delay="100"
+            data-aos-anchor-placement="top-bottom"
+            role="article"
+            aria-label="Sitios institucionales"
+        >
+            <div class="flex items-start gap-4">
+                <!-- Icon -->
+                <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-lg bg-gradient-to-br from-indigo-600/30 to-indigo-400/20 border border-white/8 shadow-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-building"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 21l18 0" /><path d="M9 8l1 0" /><path d="M9 12l1 0" /><path d="M9 16l1 0" /><path d="M14 8l1 0" /><path d="M14 12l1 0" /><path d="M14 16l1 0" /><path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16" /></svg>
+                </div>
+
+                <div class="flex-1">
+                    <h3 class="text-lg lg:text-xl font-bold text-white mb-2">Desarrollo de webs institucionales</h3>
+                    <p class="text-sm lg:text-[15px] text-slate-300 leading-relaxed">
+                        Sitios claros y profesionales para presentar tu negocio: quién sos, qué ofrecés y cómo contactarte.
+                        Diseños rápidos, optimizados para móvil y fáciles de actualizar.
+                    </p>
+
+                    <p class="text-xs text-slate-400 mt-3">
+                        <strong class="text-slate-100">Cómo potencia tu negocio:</strong> mejor presencia online y más confianza de clientes.
+                    </p>
+
+                    <div class="mt-4">
+                        <a
+                            href="#contacto"
+                            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500 hover:bg-indigo-600 text-white text-sm shadow-sm transition transform hover:-translate-y-0.5"
+                            aria-label="Ver web institucional"
+                        >
+                            Quiero mi web
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                                <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-b from-transparent to-black/20" aria-hidden="true"></div>
+        </article>
+
+        <!-- CARD 2 — Web "catálogo" -->
+        <article
+            class="col-span-1 lg:col-span-4 rounded-2xl p-6 bg-white/5 backdrop-blur-md border border-white/6 shadow-2xl transform transition-transform duration-300 hover:scale-[1.02]"
+            data-aos="fade-up"
+            data-aos-delay="200"
+            data-aos-anchor-placement="top-bottom"
+            role="article"
+            aria-label="Web catalogo"
+        >
+            <div class="flex items-start gap-4">
+                <!-- Icon -->
+                <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-lg bg-gradient-to-br from-indigo-600/30 to-indigo-400/20 border border-white/8 shadow-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-category-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 4h6v6h-6z" /><path d="M4 14h6v6h-6z" /><path d="M17 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M7 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /></svg>
+                </div>
+
+                <div class="flex-1">
+                    <h3 class="text-lg lg:text-xl font-bold text-white mb-2">Catálogos Online</h3>
+                    <p class="text-sm lg:text-[15px] text-slate-300 leading-relaxed">
+                        Muestrario online para tus productos: fotos, descripciones y categorías sin necesidad de pasarelas.
+                        Ideal para quienes quieren mostrar oferta y recibir consultas rápidamente.
+                    </p>
+
+                    <p class="text-xs text-slate-400 mt-3">
+                        <strong class="text-slate-100">Cómo potencia tu negocio:</strong> más visibilidad para tus productos, consultas mejor calificadas y funcionamiento 24/7.
+                    </p>
+
+                    <div class="mt-4">
+                        <a
+                            href="#contacto"
+                            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500 hover:bg-indigo-600 text-white text-sm shadow-sm transition transform hover:-translate-y-0.5"
+                            aria-label="Ver catalogo web"
+                        >
+                            Quiero mi catálogo
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                                <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-b from-transparent to-black/20" aria-hidden="true"></div>
+        </article>
+
+        <!-- BLOBB 2 (decor) -->
+        <div
+            class="hidden lg:block lg:col-span-3 rounded-2xl overflow-hidden relative"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+            aria-hidden="true"
+        >
+            <div class="w-full h-full rounded-2xl bg-gradient-to-br from-teal-400/22 via-indigo-500/12 to-transparent backdrop-blur-sm border border-white/6 shadow-lg" />
+        </div>
+
+        <!-- BLOBB 3 (decor) -->
+        <div
+            class="hidden lg:block lg:col-span-3 rounded-2xl overflow-hidden relative"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+            aria-hidden="true"
+        >
+            <div class="w-full h-full rounded-2xl bg-gradient-to-br from-indigo-600/24 via-indigo-500/10 to-transparent backdrop-blur-sm border border-white/6 shadow-lg" />
+        </div>
+
+        <!-- CARD 3 — Desarrollos a medida -->
+        <article
+            class="col-span-1 lg:col-span-4 rounded-2xl p-6 bg-white/5 backdrop-blur-md border border-white/6 shadow-2xl transform transition-transform duration-300 hover:scale-[1.02]"
+            data-aos="fade-up"
+            data-aos-delay="500"
+            data-aos-anchor-placement="top-bottom"
+            role="article"
+            aria-label="Desarrollos a medida"
+        >
+            <div class="flex items-start gap-4">
+                <!-- Icon -->
+                <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-lg bg-gradient-to-br from-indigo-600/30 to-indigo-400/20 border border-white/8 shadow-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-ruler-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 3l4 4l-14 14l-4 -4z" /><path d="M16 7l-1.5 -1.5" /><path d="M13 10l-1.5 -1.5" /><path d="M10 13l-1.5 -1.5" /><path d="M7 16l-1.5 -1.5" /></svg>
+                </div>
+
+                <div class="flex-1">
+                    <h3 class="text-lg lg:text-xl font-bold text-white mb-2">Desarrollos a medida</h3>
+                    <p class="text-sm lg:text-[15px] text-slate-300 leading-relaxed">
+                        Integraciones, automatizaciones y paneles personalizados según cómo trabajás. Si necesitás algo específico,
+                        lo diseñamos y lo hacemos funcionar.
+                    </p>
+
+                    <p class="text-xs text-slate-400 mt-3">
+                        <strong class="text-slate-100">Cómo potencia tu negocio:</strong> menos tareas manuales, ahorro de tiempo y procesos más ordenados.
+                    </p>
+
+                    <div class="mt-4">
+                        <a
+                            href="#contacto"
+                            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500 hover:bg-indigo-600 text-white text-sm shadow-sm transition transform hover:-translate-y-0.5"
+                            aria-label="Ver desarrollos a medida"
+                        >
+                            Necesito mi software
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                                <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-b from-transparent to-black/20" aria-hidden="true"></div>
+        </article>
+
+    </div>
+
+    <!-- VENTAJAS: resumen rápido -->
+    <div class="w-full mx-auto mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4" data-aos="fade-down">
+        <div class="p-4 rounded-xl bg-white/4 border border-white/6">
+            <h4 class="text-sm font-semibold text-white mb-1">Hecho para vos</h4>
+            <p class="text-xs text-slate-300">Proyectos prácticos y adaptados a tu negocio, no plantillas genéricas.</p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-white/4 border border-white/6">
+            <h4 class="text-sm font-semibold text-white mb-1">Acompañamiento</h4>
+            <p class="text-xs text-slate-300">Te ayudamos desde la puesta en marcha y quedamos cerca para cualquier cambio.</p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-white/4 border border-white/6">
+            <h4 class="text-sm font-semibold text-white mb-1">Crecé sin drama</h4>
+            <p class="text-xs text-slate-300">Soluciones escalables y fáciles de mantener para cuando tu negocio crezca.</p>
+        </div>
+    </div>
+</section>

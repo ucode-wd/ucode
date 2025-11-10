@@ -1,0 +1,146 @@
+<section
+    id="contacto"
+    class="relative mx-auto mt-24 w-full max-w-[1200px] text-white py-16"
+>
+    <div
+        class="grid grid-cols-1 md:grid-cols-2 gap-10 rounded-3xl sm:p-6 md:p-10
+               bg-transparent md:bg-gradient-to-br md:from-white/10 md:via-white/5 md:to-transparent overflow-x-hidden
+               backdrop-blur-none md:backdrop-blur-lg
+               shadow-none md:shadow-2xl
+               border-0 md:border border-white/10"
+    >
+        <!-- Lado izquierdo -->
+        <div
+            class="flex flex-col justify-center space-y-5"
+            data-aos="fade-right"
+            data-aos-duration="900"
+        >
+            <h2 class="text-4xl font-extrabold leading-tight">
+                Llevá tu negocio al siguiente nivel
+            </h2>
+            <p class="text-white/80 text-lg">
+                Es momento de dar el salto: digitalizá tu negocio, automatizá procesos y alcanzá más clientes sin límites. 
+                <br />
+                <span class="text-indigo-300 font-bold">¿Listo para despegar?</span>
+            </p>
+
+            <div class="flex gap-4 pt-4">
+                <button
+                    id="ig-btn"
+                    aria-label="Instagram"
+                    class="group p-3 rounded-full bg-white/10 hover:bg-white/20 transition cursor-pointer"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M16.5 7.5v.01" /></svg>
+                </button>
+                <button
+                    id="wa-btn"
+                    aria-label="WhatsApp"
+                    class="group p-3 rounded-full bg-white/10 hover:bg-white/20 transition cursor-pointer"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /></svg>
+                </button>
+                <button
+                    id="fb-btn"
+                    aria-label="Facebook"
+                    class="group p-3 rounded-full bg-white/10 hover:bg-white/20 transition cursor-pointer"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-facebook"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Formulario -->
+        <form
+            id="contact-form"
+            class="bg-white/5 rounded-2xl p-8 shadow-xl space-y-5 border border-white/10"
+            data-aos="fade-left"
+            data-aos-duration="900"
+            aria-label="Formulario de contacto"
+        >
+            <h3 class="text-2xl font-bold text-white mb-2">
+                Contáctanos
+            </h3>
+            <p class="text-sm text-white/70">
+                Completá el formulario y contanos cómo podemos ayudarte.
+            </p>
+
+            <input
+                name="from_name"
+                id="from_name"
+                type="text"
+                required
+                placeholder="Tu nombre"
+                class="w-full rounded-xl px-4 py-3 bg-white/10 border border-white/20 placeholder-white/60 text-white focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            />
+
+            <input
+                name="email_id"
+                id="email_id"
+                type="email"
+                required
+                placeholder="Tu correo electrónico"
+                class="w-full rounded-xl px-4 py-3 bg-white/10 border border-white/20 placeholder-white/60 text-white focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            />
+
+            <textarea
+                name="message"
+                id="message"
+                required
+                placeholder="Contanos tu idea o proyecto"
+                rows="5"
+                class="w-full rounded-xl px-4 py-3 bg-white/10 border border-white/20 placeholder-white/60 text-white resize-none focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            ></textarea>
+
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+                <input
+                    id="contact-submit"
+                    type="submit"
+                    value="Enviar mensaje"
+                    class="w-full sm:w-48 px-5 py-3 rounded-xl font-semibold bg-gradient-to-r from-indigo-600 to-purple-600 hover:scale-[1.03] active:scale-[0.98] transition-transform shadow-lg cursor-pointer"
+                />
+            </div>
+        </form>
+    </div>
+
+    <!-- Script emailjs -->
+    <script>
+        import emailjs from '@emailjs/browser';
+        import { alert } from 'upop';
+
+        // Función para abrir enlaces externos
+        const openUrl = (url) => window.open(url, '_blank');
+
+        // Botones redes sociales
+        document.getElementById('ig-btn')?.addEventListener('click', () => openUrl('https://www.instagram.com/ucode.wd'));
+        document.getElementById('wa-btn')?.addEventListener('click', () => openUrl('https://wa.me/543472526924?text=Hola, quiero consultar por mi página web'));
+        document.getElementById('fb-btn')?.addEventListener('click', () => openUrl('https://www.facebook.com/profile.php?id=61551762570519'));
+
+        // Formulario
+        const form = document.getElementById('contact-form');
+        const btn = document.getElementById('contact-submit');
+
+        // Inicializa EmailJS con tu clave pública
+        emailjs.init('eFPWngjeXPb2n3PuI'); // ⚠️ reemplazá con tu Public Key de EmailJS
+
+        if (form && btn) {
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                btn.value = 'Enviando...';
+
+                const serviceID = 'default_service';
+                const templateID = 'template_zm38uyb';
+
+                try {
+                    await emailjs.sendForm(serviceID, templateID, form);
+                    btn.value = 'Enviar';
+                    await alert.success('¡Correo enviado correctamente!');
+                    form.reset();
+                } catch (err) {
+                    btn.value = 'Enviar';
+                    await alert.error('Hubo un error al enviar el mensaje. Intentalo nuevamente.');
+                    console.error('Error al enviar el correo:', err);
+                }
+            });
+        }
+    </script>
+</section>

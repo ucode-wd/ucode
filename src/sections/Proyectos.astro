@@ -1,0 +1,184 @@
+---
+import projectsData from '../proyects.js';
+---
+<!-- AOS -->
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+/>
+
+<section
+    id="proyects"
+    class="relative w-full mx-auto mt-24 w-[92%] max-w-[1200px] text-white py-12"
+>
+    <header class="mb-10 text-center" data-aos="fade-up">
+        <h2 class="text-4xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-400 to-violet-500 bg-clip-text text-transparent">
+            Nuestros Proyectos
+        </h2>
+        <p class="mt-3 text-white/70 max-w-2xl mx-auto text-base">
+            Sitios y aplicaciones diseñadas para resultados reales y experiencias únicas.
+        </p>
+    </header>
+
+    <!-- Contenedor principal -->
+    <div
+        class="relative rounded-3xl bg-gradient-to-br from-white/5 via-white/3 to-white/5 backdrop-blur-md border border-white/10 shadow-2xl overflow-hidden"
+        data-aos="fade-up"
+        data-aos-delay="100"
+    >
+        <!-- Viewport -->
+        <div id="carouselViewport" class="overflow-hidden rounded-2xl">
+            <div id="carouselTrack" class="flex transition-transform duration-700 ease-[cubic-bezier(.2,.9,.3,1)]">
+                {projectsData.map((project, i) => (
+                    <article
+                        class="carousel-item min-w-full flex flex-col md:flex-row items-center justify-between gap-8 p-8 md:p-14"
+                    >
+                        <!-- Imagen con efecto parallax -->
+                        <figure
+                            class="w-full md:w-[440px] flex-shrink-0 rounded-2xl overflow-hidden shadow-xl transform transition duration-500 hover:scale-[1.03] aspect-square"
+                            data-aos="zoom-in"
+                            data-aos-delay={String(100 * i)}
+                        >
+                            <img
+                                src={`/images/carousel-images/${project.imagen}`}
+                                alt={project.titulo}
+                                class="w-full h-full object-cover cursor-pointer"
+                                onClick={`window.open('https://${project.url}')`}
+                            />
+                        </figure>
+
+
+                        <!-- Contenido -->
+                        <div class="flex-1 text-center md:text-left">
+                            <h3
+                                class="text-2xl md:text-3xl font-bold text-white mb-3"
+                                data-aos="fade-up"
+                            >
+                                {project.titulo}
+                            </h3>
+                            <p
+                                class="text-base md:text-lg text-white/80 leading-relaxed max-w-lg mx-auto md:mx-0"
+                                data-aos="fade-up"
+                                data-aos-delay="150"
+                                set:html={project.parrafo}
+                            />
+
+
+                            <div
+                                class="mt-6 flex justify-center md:justify-start"
+                                data-aos="fade-up"
+                                data-aos-delay="200"
+                            >
+                                <a
+                                    href={`https://${project.url}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 hover:from-indigo-600 hover:to-violet-700 transition-all duration-300 shadow-md"
+                                >
+                                    Ver sitio
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="w-4 h-4"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3"
+                                        />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                ))}
+            </div>
+        </div>
+
+        <!-- Controles -->
+        <button
+            id="prevBtn"
+            aria-label="Anterior"
+            class="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-black/40 backdrop-blur-md p-3 hover:bg-black/60 transition"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-caret-left"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M13.883 5.007l.058 -.005h.118l.058 .005l.06 .009l.052 .01l.108 .032l.067 .027l.132 .07l.09 .065l.081 .073l.083 .094l.054 .077l.054 .096l.017 .036l.027 .067l.032 .108l.01 .053l.01 .06l.004 .057l.002 .059v12c0 .852 -.986 1.297 -1.623 .783l-.084 -.076l-6 -6a1 1 0 0 1 -.083 -1.32l.083 -.094l6 -6l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01z" /></svg>
+        </button>
+
+        <button
+            id="nextBtn"
+            aria-label="Siguiente"
+            class="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-black/40 backdrop-blur-md p-3 hover:bg-black/60 transition"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-caret-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6c0 -.852 .986 -1.297 1.623 -.783l.084 .076l6 6a1 1 0 0 1 .083 1.32l-.083 .094l-6 6l-.094 .083l-.077 .054l-.096 .054l-.036 .017l-.067 .027l-.108 .032l-.053 .01l-.06 .01l-.057 .004l-.059 .002l-.059 -.002l-.058 -.005l-.06 -.009l-.052 -.01l-.108 -.032l-.067 -.027l-.132 -.07l-.09 -.065l-.081 -.073l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057l-.002 -12.059z" /></svg>
+        </button>
+
+        <!-- Indicadores -->
+        <nav class="mt-6 flex justify-center pb-4">
+            <div id="indicators" class="flex gap-2">
+                {projectsData.map((_, i) => (
+                    <button
+                        aria-label={`Ir al proyecto ${i + 1}`}
+                        data-index={i}
+                        class="w-3 h-3 rounded-full bg-white/30 hover:bg-white/60 transition"
+                    ></button>
+                ))}
+            </div>
+        </nav>
+    </div>
+</section>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+<script>
+    // Carousel
+    (function () {
+        const track = document.getElementById('carouselTrack');
+        const viewport = document.getElementById('carouselViewport');
+        const items = track.querySelectorAll('.carousel-item');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const indicators = document.getElementById('indicators').children;
+
+        let currentIndex = 0;
+
+        function update() {
+            const vw = viewport.clientWidth;
+            track.style.transform = `translateX(-${currentIndex * vw}px)`;
+            Array.from(indicators).forEach((dot, i) => {
+                dot.classList.toggle('bg-white/90', i === currentIndex);
+                dot.classList.toggle('bg-white/30', i !== currentIndex);
+            });
+        }
+
+        function prev() {
+            if (currentIndex > 0) currentIndex--;
+            update();
+        }
+
+        function next() {
+            if (currentIndex < items.length - 1) currentIndex++;
+            update();
+        }
+
+        prevBtn.addEventListener('click', prev);
+        nextBtn.addEventListener('click', next);
+
+        Array.from(indicators).forEach((dot) => {
+            dot.addEventListener('click', (e) => {
+                currentIndex = Number(e.currentTarget.dataset.index);
+                update();
+            });
+        });
+
+        window.addEventListener('resize', update);
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') prev();
+            if (e.key === 'ArrowRight') next();
+        });
+
+        update();
+    })();
+</script>

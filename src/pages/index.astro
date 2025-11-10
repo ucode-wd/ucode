@@ -1,0 +1,151 @@
+---
+import '../styles/global.css'
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Hero from "../sections/Hero.astro";
+import Nosotros from "../sections/Nosotros.astro";
+import Proyectos from "../sections/Proyectos.astro";
+import Contacto from "../sections/Contacto.astro";
+---
+
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image" href="/favicon.webp" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content={Astro.generator} />
+
+        <title>Ucode | Desarrollo de software — Sitios institucionales, catálogos y desarrollos a medida</title>
+
+        <!-- Primary meta -->
+        <meta name="description" content="Ucode — Agencia joven de desarrollo y diseño web. Creamos sitios institucionales, catálogos online y desarrollos a medida. Rendimiento, SEO y soporte para tu empresa." />
+        <meta name="keywords" content="desarrollo web, diseño web, agencia web, sitios institucionales, catálogos online, desarrollos a medida, Ucode, Argentina" />
+        <meta name="robots" content="index, follow" />
+        <meta name="googlebot" content="index, follow" />
+        <meta name="theme-color" content="#0b1220" />
+
+        <!-- Canonical (reemplaza por tu dominio real si no usas Astro.site) -->
+        <link rel="canonical" href={Astro.site ?? 'https://tusitio.com'} />
+
+        <!-- Hreflang (si tenés versiones para otros idiomas, agrégalas) -->
+        <link rel="alternate" href={Astro.site ?? 'https://tusitio.com'} hreflang="es-AR" />
+        <link rel="alternate" href={Astro.site ?? 'https://tusitio.com'} hreflang="es" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/upop@1.0.2/dist/upop.css">
+        <!-- Social / Open Graph -->
+        <meta property="og:locale" content="es_AR" />
+        <meta property="og:site_name" content="Ucode" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Ucode | Desarrollo de software — Sitios institucionales y desarrollos a medida" />
+        <meta property="og:description" content="Agencia joven de diseño y desarrollo web. Sitios institucionales, catálogos y desarrollos a medida con foco en performance y SEO." />
+        <meta property="og:url" content={Astro.site ?? 'https://tusitio.com'} />
+        <meta property="og:image" content={Astro.site ? `${Astro.site}/ucode-og.webp` : '/ucode-og.webp'} />
+        <meta property="og:image:alt" content="Ucode — Diseño y desarrollo web" />
+
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Ucode | Desarrollo de software" />
+        <meta name="twitter:description" content="Agencia joven de diseño y desarrollo web. Sitios institucionales, catálogos y desarrollos a medida con foco en performance y SEO." />
+        <meta name="twitter:image" content={Astro.site ? `${Astro.site}/ucode-og.webp` : '/ucode-og.webp'} />
+
+        <!-- Performance hints -->
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+        <link rel="preload" as="image" href="/ucode-og.webp" />
+
+        <!-- Sitemap -->
+        <link rel="sitemap" type="application/xml" title="Sitemap" href={Astro.site ? `${Astro.site}/sitemap.xml` : '/sitemap.xml'} />
+
+        <!-- AOS CSS -->
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+            rel="stylesheet"
+        />
+
+        <style>
+            body {
+                min-height: 100vh;
+                overflow-x: hidden;
+                color: #eae6ff;
+                background: radial-gradient(
+                        circle at 50% 40%,
+                        rgba(95, 39, 205, 0.3) 0%,
+                        rgba(95, 39, 205, 0.1) 25%,
+                        rgba(12, 12, 12, 0.9) 100%
+                    ),
+                    linear-gradient(135deg, #08080a 0%, #10001a 100%);
+                background-attachment: fixed;
+                background-size: cover;
+            }
+
+            #myCanvas {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                z-index: -1;
+            }
+        </style>
+
+        <!-- Structured data (JSON-LD) -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@graph": [
+                    {
+                        "@type": "Organization",
+                        "name": "Ucode",
+                        "url":  "%%SITE_URL%%",
+                        "logo": "%%SITE_URL%%/ucode3.webp",
+                        "sameAs": []
+                    },
+                    {
+                        "@type": "WebSite",
+                        "url": "%%SITE_URL%%",
+                        "name": "Ucode",
+                        "potentialAction": {
+                            "@type": "SearchAction",
+                            "target": "%%SITE_URL%%/?s={search_term_string}",
+                            "query-input": "required name=search_term_string"
+                        }
+                    },
+                    {
+                        "@type": "WebPage",
+                        "url": "%%SITE_URL%%",
+                        "name": "Ucode | Desarrollo de software",
+                        "description": "Agencia joven de diseño y desarrollo web. Sitios institucionales, catálogos y desarrollos a medida con foco en performance y SEO."
+                    }
+                ]
+            }
+        </script>
+        <!-- Nota: reemplaza las marcas %%SITE_URL%% por tu dominio real (por ejemplo https://ucode.com) o configura en tu pipeline para que lo haga automáticamente. -->
+    </head>
+
+    <body>
+        <Header />
+        <main class="max-w-7xl m-auto px-6">
+            <Hero />
+            <Nosotros />
+            <Proyectos />
+            <Contacto />
+        </main>
+        <Footer />
+
+        <canvas id="myCanvas"></canvas>
+
+        <script src="../scripts/background.js"></script>
+
+        <!-- AOS JS (CDN) -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+        <script>
+            window.addEventListener('load', () => {
+                if (window.AOS) {
+                    AOS.init({
+                        duration: 500,
+                        easing: 'ease-in-out',
+                        once: true
+                    });
+                }
+            });
+        </script>
+    </body>
+</html>
