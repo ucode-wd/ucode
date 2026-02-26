@@ -1,0 +1,129 @@
+---
+import "../../styles/global.css";
+---
+
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Pago Pendiente | Chequear App</title>
+        <style>
+            body {
+                min-height: 100vh;
+                margin: 0;
+                background-color: #f8f9fa;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family:
+                    system-ui,
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    Roboto,
+                    "Helvetica Neue",
+                    sans-serif;
+                flex-direction: column;
+            }
+            .card {
+                background: #ffffff;
+                border-radius: 1.5rem;
+                padding: 3rem 2rem;
+                text-align: center;
+                max-width: 400px;
+                width: 90%;
+                box-shadow: 0 4px 20px rgba(11, 42, 87, 0.08);
+            }
+            .icon-wrapper {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                background-color: rgba(245, 158, 11, 0.1); /* Light orange bg */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto 1.5rem;
+            }
+            .icon {
+                font-size: 2.5rem;
+                color: #f59e0b; /* Orange */
+                animation: pulse 1s infinite alternate;
+            }
+            @keyframes pulse {
+                0% {
+                    transform: scale(0.95);
+                    opacity: 0.8;
+                }
+                100% {
+                    transform: scale(1.05);
+                    opacity: 1;
+                }
+            }
+            h1 {
+                font-size: 1.5rem;
+                margin: 0 0 0.75rem;
+                font-weight: 700;
+                color: #0b2a57;
+            }
+            p {
+                color: #6b7280;
+                margin: 0 0 2rem;
+                line-height: 1.6;
+                font-size: 1rem;
+            }
+            .countdown {
+                margin-top: 1rem;
+                color: #6b7280;
+                font-weight: 600;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="card">
+            <div class="icon-wrapper">
+                <div class="icon">⏳</div>
+            </div>
+            <h1>Pago pendiente</h1>
+            <p>
+                Tu pago está en proceso o pendiente de acreditación. Te
+                notificaremos en cuanto se confirme.
+            </p>
+        </div>
+        <div class="countdown">Volviendo a la app en 3 segundos</div>
+
+        <script type="text/javascript">
+            let countdownEl = document.querySelector(".countdown");
+            let seconds = 3;
+
+            const scheme = "chequearapp://pendiente"; // tu deep link
+            let fallback = "";
+
+            const ua = navigator.userAgent || navigator.vendor || window.opera;
+            if (/android/i.test(ua)) {
+                fallback =
+                    "https://play.google.com/store/apps/details?id=com.ucode.chequear";
+            } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
+                fallback = "https://apps.apple.com/app/idTU_APP_ID"; // reemplaza TU_APP_ID
+            } else {
+                fallback = "https://ucode.com.ar/"; // fallback web
+            }
+
+            const interval = setInterval(() => {
+                seconds--;
+                if (seconds > 0) {
+                    countdownEl.textContent = `Volviendo a la app en ${seconds} segundos`;
+                } else {
+                    clearInterval(interval);
+                    // Intentar abrir la app
+                    const start = Date.now();
+                    window.location = scheme;
+                    setTimeout(() => {
+                        if (Date.now() - start < 2000) {
+                            window.location = fallback;
+                        }
+                    }, 1500);
+                }
+            }, 1000);
+        </script>
+    </body>
+</html>
