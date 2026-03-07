@@ -1,5 +1,16 @@
 const proyectsData = [
     {
+        titulo: "Chequear",
+        imagen: "chequear.webp",
+        parrafo: `
+            Plataforma inteligente para el análisis de riesgo de cheques. 
+            A partir de los datos del cheque genera un informe que evalúa la probabilidad 
+            de incumplimiento, ayudando a empresas y comercios a decidir si aceptar o no 
+            un cheque antes de concretar la operación.
+        `,
+        url: "chequearapp.com.ar"
+    },
+    {
         titulo: "Comuna Villa Elisa",
         imagen: "villa-elisa.webp",
         parrafo: "Sitio institucional para la comuna, con integración de un sistema de gestión de cuotas.",
